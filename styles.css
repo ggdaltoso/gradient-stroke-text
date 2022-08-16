@@ -1,0 +1,47 @@
+:root {
+  --app-color-shell: hsl(281, 67%, 5%);
+  --app-color-foreground-blue: #54c8fa;
+  --app-color-foreground-violet-light: #b7a3bf;
+  --app-color-foreground-violet: #be1cfa;
+
+  --app-background-gradient-blue_to_violet: linear-gradient(
+    130deg,
+    var(--app-color-foreground-blue) 30%,
+    var(--app-color-foreground-violet) 70%
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: black;
+  background-color: var(--app-color-shell);
+}
+
+main {
+  padding: 1rem;
+}
+
+.gradient-stroke {
+  color: var(--app-color-shell);
+  display: block;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 800;
+  line-height: 0.9;
+  font-size: 4rem;
+}
+
+.gradient-stroke::before {
+  content: attr(data-text);
+  background: var(--app-background-gradient-blue_to_violet);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 4px transparent;
+  position: absolute;
+
+  z-index: -1;
+}
